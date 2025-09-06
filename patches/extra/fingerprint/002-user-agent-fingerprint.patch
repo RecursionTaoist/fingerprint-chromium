@@ -361,3 +361,33 @@ index 281e6a8c66..3e21126f25 100644
      // ShouldSendClientHint is called to make sure UA is controlled by
      // Permissions Policy.
      if (ShouldSendClientHint(*policy, resource_origin, is_1p_origin,
+--- a/components/embedder_support/BUILD.gn
++++ b/components/embedder_support/BUILD.gn
+@@ -60,6 +60,7 @@
+     "//build/util:chromium_git_revision",
+     "//components/policy/core/common",
+     "//components/prefs",
++    "//components/ungoogled:ungoogled_switches",
+     "//components/version_info",
+     "//net",
+     "//third_party/blink/public/common:headers",
+--- a/third_party/blink/common/BUILD.gn
++++ b/third_party/blink/common/BUILD.gn
+@@ -304,6 +304,7 @@
+     "//base",
+     "//build:android_buildflags",
+     "//build:chromecast_buildflags",
++    "//components/ungoogled:ungoogled_switches",
+     "//media/capture:capture_base",
+     "//media/capture/mojom:video_capture_mojom_support",
+     "//mojo/public/cpp/system",
+--- a/third_party/blink/renderer/core/BUILD.gn
++++ b/third_party/blink/renderer/core/BUILD.gn
+@@ -383,6 +383,7 @@
+     "//components/paint_preview/common",
+     "//components/performance_manager/public/mojom:mojom_blink",
+     "//components/shared_highlighting/core/common",
++    "//components/ungoogled:ungoogled_switches",
+     "//components/web_package",
+     "//gin",
+     "//gpu/config",
