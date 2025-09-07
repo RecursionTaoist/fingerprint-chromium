@@ -237,37 +237,55 @@
                             std::unique_ptr<std::string> response_body);
 --- a/chrome/browser/safe_browsing/BUILD.gn
 +++ b/chrome/browser/safe_browsing/BUILD.gn
-@@ -7,6 +7,7 @@ import("//components/safe_browsing/build
+@@ -7,6 +7,11 @@
  import("//extensions/buildflags/buildflags.gni")
- 
+
  static_library("safe_browsing") {
++  sources = []
++  deps = []
++  allow_circular_includes_from = []
++
 +  if (false) {
    sources = [
      "chrome_controller_client.cc",
      "chrome_controller_client.h",
-@@ -73,6 +74,7 @@ static_library("safe_browsing") {
+@@ -73,6 +78,7 @@
      "//mojo/public/cpp/system",
      "//services/preferences/public/cpp",
    ]
 +  }
- 
+
    # Note: is_android is not equivalent to safe_browsing_mode == 2.
    # Sources and dependencies added to this block must not depend on anything
-@@ -564,6 +566,7 @@ static_library("advanced_protection") {
+@@ -91,13 +97,6 @@
+     allow_circular_includes_from += [ "//chrome/browser/ash/file_manager" ]
+   }
+
+-  if (is_win || is_mac || is_linux || is_chromeos) {
+-    deps += [
+-      "//chrome/browser/ui/browser_window",
+-      "//chrome/browser/ui/toasts:toasts",
+-      "//chrome/browser/ui/toasts/api:toasts",
+-    ]
+-  }
+
+   if (safe_browsing_mode != 0) {
+     # "Safe Browsing Basic" files used for safe browsing in full mode
+@@ -564,6 +563,7 @@
  }
- 
+
  source_set("metrics_collector") {
 +  if (false) {
    sources = [
      "safe_browsing_metrics_collector_factory.cc",
      "safe_browsing_metrics_collector_factory.h",
-@@ -583,6 +586,7 @@ source_set("metrics_collector") {
+@@ -583,6 +583,7 @@
      "//components/safe_browsing/core/common:safe_browsing_prefs",
      "//content/public/browser",
    ]
 +  }
  }
- 
+
  source_set("test_support") {
 --- a/chrome/browser/ui/views/download/BUILD.gn
 +++ b/chrome/browser/ui/views/download/BUILD.gn
